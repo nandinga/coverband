@@ -6,7 +6,7 @@ module Coverband
       def initialize(redis, opts = {})
         @redis = redis
         #remove check for coverband 2.0
-        @_sadd_supports_array = recent_gem_version? && recent_server_version?
+        @_sadd_supports_array = true # recent_gem_version? && recent_server_version?
         #possibly drop array storage for 2.0
         @store_as_array = opts.fetch(:array){ false }
       end
